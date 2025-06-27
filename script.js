@@ -58,10 +58,10 @@ const result = document.getElementById('result');
 /* ==== spin behaviour with 1-minute timer ==== */
 wheel.addEventListener('click', () => {
 
-  if (spunRecently()){
+  /*if (spunRecently()){
     result.textContent = "⚠️ Spin again after 12 h";
     return;
-  }
+  }/*
 
   /* pick prize & compute rotation */
   const idx   = pickIndex();
