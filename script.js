@@ -55,28 +55,41 @@ const result = document.getElementById('result');
   delete wheel.dataset.labels;                     // mark done
 })();
 
-/* ==== spin behaviour ==== */
+/* ==== spin behaviour with 1-minute timer ==== */
 wheel.addEventListener('click', () => {
 
   if (spunRecently()){
-    result.textContent = "⚠️ Spin again after 12 hour";
+    result.textContent = "⚠️ Spin again after 12 h";
     return;
   }
 
-  const idx   = pickIndex();           // which prize
-  const slice = 36;                    // degrees per slice
+  /* pick prize & compute rotation */
+  const idx   = pickIndex();
+  const slice = 36;
   const deg   = SPIN_ROUNDS*360 + idx*slice + slice/2;
 
-  wheel.style.pointerEvents = 'none';  // block double-clicks
-  wheel.style.transform = `rotate(-${deg}deg)`;  // CW spin
+  wheel.style.pointerEvents = 'none';
+  wheel.style.transform = `rotate(-${deg}deg)`;   // CW spin
 
   wheel.addEventListener('transitionend', () => {
     result.textContent = prizes[idx].text;
     saveSpinTime();
 
-    setTimeout(() => {
-      window.open('','_self'); window.close();           // try to close tab
-      setTimeout(()=> location.href='thankyou.html',250); // fallback redirect
-    }, 3000);
+    /* ---------- 60-second countdown ---------- */
+    const timerEl = document.getElementById('timer');
+    let secs = 60;
+    timerEl.textContent = `Page closes in ${secs}s`;
+
+    const tick = setInterval(() => {
+      secs--;
+      timerEl.textContent = `Page closes in ${secs}s`;
+      if (secs === 0){
+        clearInterval(tick);
+
+        /* try to close tab, else redirect */
+        window.open('','_self'); window.close();
+        setTimeout(()=> location.href='thankyou.html',250);
+      }
+    }, 1000);
   }, { once:true });
 });
