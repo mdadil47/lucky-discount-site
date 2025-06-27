@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lucky Discount Draw</title>
-
-  <!-- Smartphone-friendly sizing -->
+  <title>Momomia Lucky Draw</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
+    <h1 class="site-title">Momomia&nbsp;Lucky&nbsp;Draw</h1>
 
-    <!-- Wheel + pointer -->
     <div class="wheel-wrapper">
       <div class="arrow"></div>
-      <!-- data-labels tells JS to paint text on each slice exactly once -->
-      <div id="wheel" class="wheel" data-labels></div>
+      <div id="wheel" class="wheel"></div>
     </div>
 
-    <p class="hint">Tap the wheel to test your luck – one spin every&nbsp;12 hour.</p>
-    <div id="result"></div>
+    <button id="spinBtn" class="spin-btn">Spin&nbsp;Now</button>
+
+    <p id="result"></p>
+    <div id="timer"></div>
   </div>
 
   <script src="script.js"></script>
