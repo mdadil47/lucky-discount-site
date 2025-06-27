@@ -16,5 +16,5 @@ and then automatically exits the page.
 | 🔒 **Spin lock** | Each browser can spin **once every 12 hours** (stored in `localStorage`) |
 | ⏱ **Auto-exit** | 30-second countdown after the result, then tries `window.close()` and falls back to `thankyou.html` |
 | 📱 **Responsive** | Looks great on phones & desktops; tap or press the **Spin Now** button |
-| 🚀 **1-file deploy** | Static front-end—host on GitHub Pages, Netlify, Vercel, S3, etc. |
+| 🚀 **1-file deploy** | Static front-end—host on GitHub Pages, Netlify.
 
