@@ -18,6 +18,3 @@ and then automatically exits the page.
 | 📱 **Responsive** | Looks great on phones & desktops; tap or press the **Spin Now** button |
 | 🚀 **1-file deploy** | Static front-end—host on GitHub Pages, Netlify, Vercel, S3, etc. |
 
----
-
-## 🗂  Project structure
