@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lucky Discount Draw</title>
+
+  <!-- Smartphone-friendly sizing -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Wheel + pointer -->
+    <div class="wheel-wrapper">
+      <div class="arrow"></div>
+      <!-- data-labels tells JS to paint text on each slice exactly once -->
+      <div id="wheel" class="wheel" data-labels></div>
+    </div>
+
+    <p class="hint">Tap the wheel to test your luck – one spin every&nbsp;12 h.</p>
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

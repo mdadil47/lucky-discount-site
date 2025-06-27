@@ -1,0 +1,68 @@
+/* ==== basic reset & layout ==== */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --radius:1.25rem; --card-max-w:26rem;
+}
+body{
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;font-family:system-ui,Roboto,sans-serif;
+  background:linear-gradient(135deg,#fdfbfb,#ebedee);
+  padding:clamp(1rem,4vw,2.5rem);
+}
+.container{
+  width:100%;max-width:var(--card-max-w);background:#fff;
+  border-radius:var(--radius);text-align:center;
+  padding:clamp(2rem,5vw,3rem) clamp(1.5rem,4vw,2.5rem);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  animation:fadeIn .8s ease-out;
+}
+
+/* ==== wheel and pointer ==== */
+.wheel-wrapper{position:relative;margin:auto;width:90%;max-width:18rem;}
+.wheel{
+  width:100%;aspect-ratio:1;border-radius:50%;
+  border:6px solid #fff;box-shadow:0 6px 12px rgba(0,0,0,.12);
+  cursor:pointer;user-select:none;
+  transition:transform 4s cubic-bezier(.17,.67,.46,1.24);
+  /* 10 equal 36 ° slices */
+  background:conic-gradient(
+    #ffd54f 0deg      36deg,  #4dd0e1 36deg     72deg,
+    #ff8a65 72deg    108deg,  #9575cd 108deg   144deg,
+    #4db6ac 144deg   180deg,  #f06292 180deg   216deg,
+    #ba68c8 216deg   252deg,  #4fc3f7 252deg   288deg,
+    #aed581 288deg   324deg,  #ffa726 324deg   360deg);
+  position:relative;
+}
+.arrow{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  width:0;height:0;border-left:14px solid transparent;
+  border-right:14px solid transparent;border-bottom:20px solid #e53935;
+}
+
+/* ==== prize labels on slices ==== */
+.wheel .label{
+  position:absolute;top:50%;left:50%;
+  transform-origin:center center;
+  width:max-content;
+  font-size:clamp(.55rem,2.2vw,.8rem);
+  font-weight:600;line-height:1.1;text-align:center;
+  color:#fff;                 /* white so it shows on most colours   */
+  text-shadow:0 1px 2px rgba(0,0,0,.6); /* outline for light slices  */
+  pointer-events:none;
+}
+
+/* ==== text areas ==== */
+.hint{margin-top:1.4rem;font-size:clamp(.95rem,4vw,1.05rem);color:#555;}
+#result{
+  min-height:2.5rem;margin-top:1.8rem;
+  font-size:clamp(1.35rem,5vw,1.6rem);font-weight:600;color:#222;
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* optional dark-mode tweaks */
+@media (prefers-color-scheme:dark){
+  body{background:linear-gradient(135deg,#0d0d0d,#202225);}
+  .container{background:#2b2e31;color:#f1f1f1;}
+  .hint{color:#d0d0d0;} #result{color:#fff;}
+}
