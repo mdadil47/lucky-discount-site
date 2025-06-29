@@ -1,5 +1,5 @@
 /* ==== configuration ==== */
-const LOCK_MS   = 43_200_000;    // 12 hours
+const LOCK_MS   = 21_600_000;    // 6 hours
 const EXIT_SECS = 30;            // auto-exit countdown
 const SPIN_ROUNDS = 5;           // extra turns for drama
 const KEY = 'lastSpinTime';
