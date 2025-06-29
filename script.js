@@ -59,7 +59,7 @@ function startExitCountdown(){
 /* main spin logic */
 function spin(){
   if(spunRecently()){
-    result.textContent="⚠️ Spin again after 12 h";
+    result.textContent="⚠️ Spin again after 6 hour";
     return;
   }
 
